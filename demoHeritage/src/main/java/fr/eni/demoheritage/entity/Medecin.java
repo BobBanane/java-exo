@@ -14,13 +14,16 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 
 @Entity
-//@Table( name = "medecins")
+
+// TABLE_PER_CLASS | JOINED -----------------
+@Table(name = "medecins")
+
+// SINGLE_TABLE -----------------
 @DiscriminatorValue(value = "Médecin")
 public class Medecin extends Personne {
 
     private String specialite;
     private String numMedecin;
     private float tarif;
-
 
 }

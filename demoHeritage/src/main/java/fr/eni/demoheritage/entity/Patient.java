@@ -14,8 +14,12 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 
 @Entity
-//@Table(name = "patients")
-@DiscriminatorValue(value = "Patient")
+
+// TABLE_PER_CLASS | JOINED -----------------
+@Table(name = "patients")
+
+// SINGLE_TABLE -----------------
+//@DiscriminatorValue(value = "Patient")
 public class Patient extends Personne{
 
     private String nss;
