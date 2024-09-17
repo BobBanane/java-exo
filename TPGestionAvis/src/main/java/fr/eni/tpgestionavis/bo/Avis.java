@@ -1,0 +1,43 @@
+package fr.eni.tpgestionavis.bo;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
+@Document(collection = "REVIEWS")
+public class Avis {
+
+    @Id
+    @Field(name = "id")
+    private String id;
+
+    @Field(name = "note")
+    private int note;
+
+    @Field(name = "commentary")
+    private String commentaire;
+
+    @Field(name = "date")
+    private LocalDateTime date;
+
+    private BouteilleId bouteilleId;
+
+    @Field(name = "client")
+    private Client client;
+
+    @DBRef
+    private Bouteille bouteille;
+
+}
