@@ -151,14 +151,12 @@ public class TestManyToOne {
 	@Test
 	@Order(2)
 	public void test_save_bouteilles_regions_couleurs() {
-
 		List<Bouteille> bouteilles = jeuDeDonnees();
 
 		List<Bouteille> bouteillesBDD = bouteilleRepository.saveAll(bouteilles);
 		Assertions.assertThat(bouteillesBDD.size()).isEqualTo(bouteilles.size());
 
 		bouteillesBDD.forEach(System.out::println);
-
 	}
 
 	@Test

@@ -29,12 +29,12 @@ public class Bouteille {
     private float prix;
 
     @EqualsAndHashCode.Exclude
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "COLOR_ID")
     private Couleur couleur;
 
     @EqualsAndHashCode.Exclude
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "REGION_ID")
     private Region region;
 
