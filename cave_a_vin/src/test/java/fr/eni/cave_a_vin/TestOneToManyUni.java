@@ -2,7 +2,7 @@ package fr.eni.cave_a_vin;
 
 import fr.eni.cave_a_vin.bo.LignePanier;
 import fr.eni.cave_a_vin.bo.Panier;
-import fr.eni.cave_a_vin.dal.LignePanierrepository;
+import fr.eni.cave_a_vin.dal.LignePanierRepository;
 import fr.eni.cave_a_vin.dal.PanierRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
@@ -34,7 +34,7 @@ public class TestOneToManyUni {
     @Autowired
     private PanierRepository panierRepository;
     @Autowired
-    private LignePanierrepository lignePanierRepository;
+    private LignePanierRepository lignePanierRepository;
 
 	@Test
 	@Order(1)

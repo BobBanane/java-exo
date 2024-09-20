@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
@@ -32,12 +33,10 @@ public class Avis {
     @Field(name = "date")
     private LocalDateTime date;
 
-    private BouteilleId bouteilleId;
-
     @Field(name = "client")
     private Client client;
 
-    @DBRef
+    @Field(name = "bouteille")
     private Bouteille bouteille;
 
 }

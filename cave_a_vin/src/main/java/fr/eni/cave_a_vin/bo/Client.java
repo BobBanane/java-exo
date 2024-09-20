@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 public class Client extends Utilisateur {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "adresse_id")
+    @JoinColumn(name = "address_id")
     private Adresse adresse;
 
 }

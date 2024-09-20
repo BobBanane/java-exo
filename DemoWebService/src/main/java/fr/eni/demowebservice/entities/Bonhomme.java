@@ -24,11 +24,12 @@ public class Bonhomme {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-    @NotNull @Size(min = 2, max = 50, message = "Doit faire entre 2 et 50 caratères")
+    @NotNull( message = "{bonhomme.nom.notnull}")
+    @Size(min = 2, max = 50, message = "{bonhomme.nom.size}")
     private String nom;
 
-    @Min(18) @Max(140)
+    @Min(value = 18, message = "{bonhomme.age.min}" )
+    @Max(value = 140,  message = "{bonhomme.age.max}" )
     private int age;
 
     @OneToOne(cascade = CascadeType.ALL)

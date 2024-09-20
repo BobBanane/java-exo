@@ -42,7 +42,8 @@ public class TestAssociationAvisBouteilleClient {
                 .build();
 
         Bouteille bouteille = Bouteille.builder()
-                .id(bouteilleId)
+                .id(1)
+//                .id(bouteilleId)
                 .nom(nomBouteille)
                 .build();
 

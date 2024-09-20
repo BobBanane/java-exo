@@ -2,13 +2,10 @@ package fr.eni.tpgestionavis;
 
 import fr.eni.tpgestionavis.bo.Avis;
 import fr.eni.tpgestionavis.bo.Bouteille;
-import fr.eni.tpgestionavis.bo.BouteilleId;
 import fr.eni.tpgestionavis.bo.Client;
 import fr.eni.tpgestionavis.dal.AvisRepository;
 import fr.eni.tpgestionavis.dal.BouteilleRepository;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
@@ -34,34 +31,39 @@ class DataPourRequetes {
 
 		listeBouteilles.add(Bouteille
 				.builder()
-				.id(BouteilleId
-						.builder()
-						.idBouteille(18298)
-						.idRegion(3)
-						.idCouleur(1)
-						.build())
+				.id(1)
+//				.id(BouteilleId
+//						.builder()
+//						.idBouteille(18298)
+//						.idRegion(3)
+//						.idCouleur(1)
+//						.build())
 				.nom("Vin ENI Edition")
 				.build());
 
 		listeBouteilles.add(Bouteille
 				.builder()
-				.id(BouteilleId
-						.builder()
-						.idBouteille(1298)
-						.idRegion(3)
-						.idCouleur(2)
-						.build())
+				.id(2)
+//				.id(
+//					(BouteilleId
+//							.builder()
+//							.idBouteille(1298)
+//							.idRegion(3)
+//							.idCouleur(2)
+//							.build()
+//				)
 				.nom("Vin ENI Service")
 				.build());
 
 		listeBouteilles.add(Bouteille
 				.builder()
-				.id(BouteilleId
-						.builder()
-						.idBouteille(1999)
-						.idRegion(2)
-						.idCouleur(3)
-						.build())
+				.id(3)
+//				.id(BouteilleId
+//						.builder()
+//						.idBouteille(1999)
+//						.idRegion(2)
+//						.idCouleur(3)
+//						.build())
 				.nom("Vin ENI Ecole")
 				.build());
 

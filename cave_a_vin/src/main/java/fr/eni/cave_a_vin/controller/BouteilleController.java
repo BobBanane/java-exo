@@ -2,6 +2,7 @@ package fr.eni.cave_a_vin.controller;
 
 import fr.eni.cave_a_vin.bo.Bouteille;
 import fr.eni.cave_a_vin.services.BouteilleService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -71,7 +72,7 @@ public class BouteilleController {
     }
 
     @PostMapping("/bouteilles")
-    public ResponseEntity<?> save(@RequestBody Bouteille bouteille) {
+    public ResponseEntity<?> save(@Valid @RequestBody Bouteille bouteille) {
 
         try {
             Bouteille b = bouteilleService.save(bouteille);
@@ -82,21 +83,24 @@ public class BouteilleController {
     }
 
     @PutMapping("/bouteilles/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") String id, @RequestBody Bouteille bouteille) {
-        Integer idBouteille;
+    public ResponseEntity<?> update(
+            @PathVariable("id") /*String*/ int id , // test de cast géré par le exceptionHandler
+            @Valid @RequestBody Bouteille bouteille
+    ) {
+//        Integer idBouteille;
+//
+//        try  {
+//            idBouteille = Integer.parseInt(id);
+//        } catch ( NumberFormatException e ) {
+//            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Format de l'identifiant est incorrect");
+//        }
 
-        try  {
-            idBouteille = Integer.parseInt(id);
-        } catch ( NumberFormatException e ) {
-            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("Format de l'identifiant est incorrect");
-        }
-
-        if(idBouteille < 0) {
+        if(id < 0) {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("L'identifiant doite être positif");
         }
 
         try {
-            bouteille.setId(idBouteille);
+            bouteille.setId(id);
             Bouteille b = bouteilleService.update(bouteille);
             return ResponseEntity.status(HttpStatus.CREATED).body(b);
         } catch (RuntimeException e) {

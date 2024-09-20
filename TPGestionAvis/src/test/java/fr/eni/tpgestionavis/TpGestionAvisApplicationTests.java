@@ -29,7 +29,8 @@ class TpGestionAvisApplicationTests {
                 .build();
 
         Bouteille bouteille = Bouteille.builder()
-                .id(bouteilleId)
+                .id(1)
+//                .id(bouteilleId)
                 .nom("Bob")
                 .build();
 

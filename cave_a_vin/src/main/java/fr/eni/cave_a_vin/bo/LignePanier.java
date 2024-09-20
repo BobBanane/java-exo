@@ -20,8 +20,12 @@ public class LignePanier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "QUANTITE")
+    @Column(name = "QUANTITY")
     private int quantite;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "BOTTLE_ID")
+    private Bouteille bouteille;
 
     @Column(name = "PRICE", precision = 2)
     private float prix;

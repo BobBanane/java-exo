@@ -12,14 +12,15 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "CAV_USER")
 public class Utilisateur {
 
     @Id
-    @Column(length = 50, name="PSEUDO")
+    @Column(length = 50, name="LOGIN")
     private String pseudo;
 
     @ToString.Exclude
-    @Column(length = 50, name="PASSWORD")
+    @Column(name="PASSWORD")
     private String password;
 
     @Column(length = 50, name="FIRST_NAME")
@@ -27,5 +28,8 @@ public class Utilisateur {
 
     @Column(length = 50, name="LAST_NAME")
     private String nom;
+
+    @Column(length = 20, name="AUTHORITY")
+    private String authority;
 
 }

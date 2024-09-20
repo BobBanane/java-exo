@@ -26,7 +26,7 @@ public class Panier {
     @Column(name = "TOTAL_PRICE", precision = 2)
     private float prixTotal;
 
-    @Column(name = "PAYED")
+    @Column(name = "PAID")
     private boolean paye;
 
     @Builder.Default
@@ -34,6 +34,12 @@ public class Panier {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "SHOPPING_CART_ID")
     private List<LignePanier> lignesPanier = new ArrayList<>();
+
+    // Association avec Client
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REFRESH }, fetch = FetchType.EAGER)
+    @JoinColumn(name = "CLIENT_ID")
+    private Client client;
 
     public void addLignePanier(LignePanier lignePanier) {
         this.setPrixTotal(this.getPrixTotal() + lignePanier.getTolalPrice());
